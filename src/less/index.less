@@ -65,8 +65,59 @@ h1 {
 	#outer > .inner
 }
 
+.border-radius(@radius){
+	-webkit-border-radius:@radius;
+		 -moz-border-radius:@radius;
+		 			border-radius:@radius;
+}
 
+#container{
+	.border-radius(5px);
+}
 
+.mixin(@color) {
+	color-1: @color;
+}
+.mixin(@color;@padding:2){
+	color-2: @color;
+	padding-2: @padding;
+}
+.mixin(@color; @padding; @margin:2){
+	color-3: @color;
+	padding-3: @padding;
+	margin: @margin @margin @margin @margin;
+}
+
+.some .selector div{
+	.mixin(#0088000,3);
+}
+
+.box-shadow(@x: 0;@y: 0;@blur: 1px;@color:#000){
+	-webkit-box-shadow: @arguments;
+		 -moz-box-shadow: @arguments;
+		 	   -box-shadow: @arguments;
+}
+.big-block {
+	.box-shadow(2px; 5px);
+}
+
+.loop(@counter) when(@counter>0){
+	width: (10px * @counter);
+	.loop((@counter - 1));
+	//width: (10px * @counter);
+}
+
+div{
+	.loop(5);
+}
+
+.colums(4);
+.colums(@n,@i:1)when(@i =< @n){
+	.colums-@{i}{
+		width: (@i*100% / @n);
+	}
+	.colums(@n,(@i + 1));
+}
 /*
 .clearfix{
 	display: block;

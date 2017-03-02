@@ -46,6 +46,42 @@ h1 {
 .c {
   color: red;
 }
+#container {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.some .selector div {
+  color-2: #0088000 0;
+  padding-2: 3;
+  color-3: #0088000 0;
+  padding-3: 3;
+  margin: 2 2 2 2;
+}
+.big-block {
+  -webkit-box-shadow: 2px 5px 1px #000;
+  -moz-box-shadow: 2px 5px 1px #000;
+  -box-shadow: 2px 5px 1px #000;
+}
+div {
+  width: 50px;
+  width: 40px;
+  width: 30px;
+  width: 20px;
+  width: 10px;
+}
+.colums-1 {
+  width: 25%;
+}
+.colums-2 {
+  width: 50%;
+}
+.colums-3 {
+  width: 75%;
+}
+.colums-4 {
+  width: 100%;
+}
 /*
 .clearfix{
 	display: block;
