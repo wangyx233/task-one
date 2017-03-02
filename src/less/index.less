@@ -1,9 +1,84 @@
 @base: #f938ab;
+@size: 12px;
+//@images:"../img"
+
+//遵循就近原则，后面的会覆盖前面的样式
 
 h1 {
 	color: @base;
+	//background: url("@{images}/xxx.png");
 }
+.bordered {
+	border-top: dotted 1px black;
+	border-bottom: solid 2px black;
+}
+
 
 #container {
 	color: saturate(@base,50%);
+	.bordered;
+	.col-md-1 {
+		font-size: @size + 10;
+		.bordered;
+	}
+	.col-md-3 {
+		font-weight: bold;
+	}
+	.col-md-5 {
+		color: @base - #666
+	}
 }
+
+@var:0;
+.class1 {
+	@var:1;
+	.class{
+		@var:2;
+		three:@var;
+		@var:3;
+	}
+	one: @var;
+}
+
+.a, #b{
+	color:red;
+}
+.mixin-class{
+	.a;
+}
+.mixin-id{
+	#b;
+}
+
+.hover-mixin{
+	&:hover {
+		border:1px solid red;
+	}
+}
+
+#outer {
+	.inner {
+		color:red;
+	}
+}
+.c{
+	#outer > .inner
+}
+
+
+
+/*
+.clearfix{
+	display: block;
+	zoom:1;
+}
+
+&:after{
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+*/

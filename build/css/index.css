@@ -1,6 +1,63 @@
 h1 {
   color: #f938ab;
 }
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
 #container {
   color: #ff32ac;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
 }
+#container .col-md-1 {
+  font-size: 22px;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#container .col-md-3 {
+  font-weight: bold;
+}
+#container .col-md-5 {
+  color: #930045;
+}
+.class1 {
+  one: 1;
+}
+.class1 .class {
+  three: 3;
+}
+.a,
+#b {
+  color: red;
+}
+.mixin-class {
+  color: red;
+}
+.mixin-id {
+  color: red;
+}
+.hover-mixin:hover {
+  border: 1px solid red;
+}
+#outer .inner {
+  color: red;
+}
+.c {
+  color: red;
+}
+/*
+.clearfix{
+	display: block;
+	zoom:1;
+}
+
+&:after{
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+*/
