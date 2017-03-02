@@ -1,0 +1,13 @@
+html(lang="en")
+  head
+    title Jade
+    link(rel="stylesheet" type="text/css" href="../css/index.css")
+    script(src='../../component/bower/angular/angular.js')
+  body
+    h1 Jade - node template engine
+    #container.col.class1.class2
+      p hello jade!
+    div(ng-app="")
+      p name:
+        input(type="text" ng-model="name")
+      h1 Hello {{name}}

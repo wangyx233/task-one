@@ -1,0 +1,10 @@
+{
+  "name": "task-one",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.3.0"
+  },
+  "author": "yxwang",
+  "license": "ISC"
+}
