@@ -4,9 +4,10 @@
  * 依赖的Npm插件
  */
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 var less = require('gulp-less');
 var jade = require('gulp-jade');
-
 
 /**
  * 定义构建任务
@@ -17,7 +18,8 @@ var jade = require('gulp-jade');
 gulp.task('testLess', function () {
 	gulp.src('src/less/*.less')
 		.pipe(less())
-		.pipe(gulp.dest('build/css'));
+		.pipe(gulp.dest('build/css'))
+		.pipe(reload({stream: true}));
 });
 
 gulp.task('templates',function () {
@@ -28,20 +30,30 @@ gulp.task('templates',function () {
 		//{locals:YOUR_LOCALS}
 		))
 		.pipe(gulp.dest('build/html'))
+		.pipe(reload({stream: true}));
 });
+
 
 gulp.task('buildlib',function () {
-	gulp.src('component/bower/angular/angular.js')
-		.pipe(gulp.dest('src/**/*.html'))
+	gulp.src('component/bower/**/*.{js,css}')
+		.pipe(gulp.dest('build/lib/'))
 });
-
 
 //ctrl+c 退出任务
-gulp.task('testWatch',function () {
+gulp.task('testWatch',['testLess','templates','buildlib'],function () {
 	gulp.watch(['src/**/*.less','src/**/*.jade'],['testLess','templates']);
 });
+
+//静态服务器
+gulp.task('serve',['testWatch'], function() {
+
+	browserSync.init({
+			server: "./build"
+	});
+});
+
 /**
  * 定义默认执行的任务
  *	• 先构建项目，再启动服务
  */
-gulp.task("default", ['testLess','templates','testWatch']);
+gulp.task("default", ['serve']);
